@@ -98,7 +98,7 @@ static std::string value_text(int value)
 
     if(value_digit_1 != 1)
     {
-        if(value_digit_1 != 0) output_text+=" ";
+        if ((value_digit_1 != 0) && (value_digit_2!= 0)) output_text+=" ";
         switch (value_digit_2)
         {
             case 0: if(value_digit_1 == 0) output_text += "ноль"; break;
