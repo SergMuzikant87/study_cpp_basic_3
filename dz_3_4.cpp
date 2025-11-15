@@ -9,6 +9,8 @@ static std::string value_text(int value);
 
 int main(int argc, char * argv [])
 {
+    setlocale(LC_ALL, "Russian");
+
     /////////////////////////////////////////////////////////////////////////
     
     //1. Ввод данных.
