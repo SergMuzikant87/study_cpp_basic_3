@@ -18,7 +18,7 @@ int main(int argc, char * argv [])
     const int VALUE_MINIMUM = -99;
     const int VALUE_MAXIMUM = 99;
     
-    std::cout << "Введите число 1:\n";
+    std::cout << "Введите число 1: ";
     std::cin >> value_1;
     if((value_1 < VALUE_MINIMUM) || (value_1 > VALUE_MAXIMUM))
     {
@@ -26,7 +26,7 @@ int main(int argc, char * argv [])
         return 0;
     }
 
-    std::cout << "Введите число 2:\n";
+    std::cout << "Введите число 2: ";
     std::cin >> value_2;
     if((value_1 < VALUE_MINIMUM) || (value_1 > VALUE_MAXIMUM))
     {
@@ -46,7 +46,7 @@ int main(int argc, char * argv [])
     
     //3. Вывод результата
 
-    std::cout << value_1_text << values_compare_text << "чем "<< value_2_text << "\n";
+    std::cout << "\n" << value_1_text << values_compare_text << "чем "<< value_2_text << "\n";
     
     /////////////////////////////////////////////////////////////////////////////
     
