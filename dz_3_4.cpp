@@ -18,7 +18,7 @@ int main(int argc, char * argv [])
     
     for(int num  = 0; num < 2; num++)
     {
-        std::cout << "Введите число " << num << ":";
+        std::cout << "Введите число " << num << ": ";
         std::cin >> values[num];
         if((values[num] < VALUE_MINIMUM) || (values[num] > VALUE_MAXIMUM))
         {
