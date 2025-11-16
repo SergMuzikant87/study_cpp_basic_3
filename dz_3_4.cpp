@@ -77,11 +77,11 @@ static std::string value_to_text_of_value(int value)
     }
 
     //Разделение числа на цифры
-    int value_digit_1 = ((value >= 10) /*|| (value <= -10)*/) ? (value / 10) % 10 : 0;
-    int value_digit_2 = value % 10;
+    int digit_1 = ((value >= 10) /*|| (value <= -10)*/) ? (value / 10) % 10 : 0;
+    int digit_2 = value % 10;
 
     //Формирование текста цифр
-    switch(value_digit_1)
+    switch(digit_1)
     {
         case 0:
         case 1: break;
@@ -96,12 +96,12 @@ static std::string value_to_text_of_value(int value)
         default: return error_text;    
     }
 
-    if(value_digit_1 != 1)
+    if(digit_1 != 1)
     {
-        if ((value_digit_1 != 0) && (value_digit_2!= 0)) output_text+=" ";
-        switch (value_digit_2)
+        if ((digit_1 != 0) && (digit_2!= 0)) output_text+=" ";
+        switch (digit_2)
         {
-            case 0: if(value_digit_1 == 0) output_text += "ноль"; break;
+            case 0: if(digit_1 == 0) output_text += "ноль"; break;
             case 1: output_text += "один"; break;
             case 2: output_text += "два"; break;
             case 3: output_text += "три"; break;
@@ -116,7 +116,7 @@ static std::string value_to_text_of_value(int value)
     }
     else
     {
-        switch (value_digit_2)
+        switch (digit_2)
         {
             case 0: output_text += "десять"; break;
             case 1: output_text += "одинадцать"; break;
