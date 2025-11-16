@@ -5,134 +5,108 @@
 #define VALUE_MINIMUM -99
 #define VALUE_MAXIMUM 99
 
-/*
-    Функция возвращает число, указанное на входе (от -99 до 99), в виде текста.
-*/
+// Прототип функции, которая возвращает число (от -99 до 99) в виде текста, указанное на входе.
 static std::string value_to_text_of_value(int value);
 
+// Главная функция
 int main(int argc, char * argv [])
 {
     setlocale(LC_ALL, "Russian");
 
-    /////////////////////////////////////////////////////////////////////////
+    int values[2]{};
+    std::string texts_of_values[2]{};
     
-    //1. Ввод данных.
- 
-    int value_1{};
-    int value_2{};
-
-    std::cout << "Введите число 1: ";
-    std::cin >> value_1;
-    if((value_1 < VALUE_MINIMUM) || (value_1 > VALUE_MAXIMUM))
+    for(int num  = 0; num < 2; num++)
     {
-        std::cout << "Введено некорректное значение числа 1.\n";
-        return 0;
-    }
+        std::cout << "Введите число " << num << ":";
+        std::cin >> values[num];
+        if((values[num] < VALUE_MINIMUM) || (values[num] > VALUE_MAXIMUM))
+        {
+            std::cout << "Введено некорректное значение числа 1.\n";
+            return 0;
+        }
 
-    std::cout << "Введите число 2: ";
-    std::cin >> value_2;
-    if((value_2 < VALUE_MINIMUM) || (value_2 > VALUE_MAXIMUM))
-    {
-        std::cout << "Введено некорректное значение числа 2.\n";
-        return 0;
-    }
+        texts_of_values[num] = value_to_text_of_value(values[num]);
+    }    
 
-    //////////////////////////////////////////////////////////////////////////
-    
-    //2. Формирование результата
-
-    std::string value_1_text = value_to_text_of_value(value_1);
-    std::string value_2_text = value_to_text_of_value(value_2);
-    std::string values_compare_text = (value_1 > value_2) ? "больше " : "меньше ";
-
-    ///////////////////////////////////////////////////////////////////////////
-    
-    //3. Вывод результата
-
-    std::cout << "\n" << value_1_text << values_compare_text << "чем "<< value_2_text << "\n";
-    
-    /////////////////////////////////////////////////////////////////////////////
+    std::cout << "\n" << texts_of_values[0] << ((values[0] > values[1]) ? "больше " : "меньше ") << "чем "<< texts_of_values[1] << "\n";
     
     return 0;
 }
 
-/*
-    Функция возвращает число, указанное на входе (от -99 до 99), в виде текста.
-*/
+// Функция, которая возвращает число (от -99 до 99) в виде текста, указанное на входе.
 static std::string value_to_text_of_value(int value)
 {
-    std::string output_text{""};
-    std::string error_text{"какое-то число "};
+    std::string text_of_value{""};
+    std::string text_of_error{"какое-то число "};
 
     // Обработка ошибок
     if((value < VALUE_MINIMUM) || (value > VALUE_MAXIMUM))
     {
-        return error_text;
+        return text_of_error;
     }
 
     // Учитываем знак числа
     if(value < 0)
     {
-        output_text += "минус ";
+        text_of_value += "минус ";
         value = 0 - value;
     }
 
     //Разделение числа на цифры
-    int digit_1 = ((value >= 10) /*|| (value <= -10)*/) ? (value / 10) % 10 : 0;
-    int digit_2 = value % 10;
+    int digits[2]{ (value >= 10) ? (value / 10) % 10 : 0, value % 10 };
 
     //Формирование текста цифр
-    switch(digit_1)
+    switch(digits[0])
     {
         case 0:
         case 1: break;
-        case 2: output_text += "двадцать"; break;
-        case 3: output_text += "тридцать"; break;
-        case 4: output_text += "сорок"; break;
-        case 5: output_text += "пятьдесят"; break;
-        case 6: output_text += "шестьдесят"; break;
-        case 7: output_text += "семьдесят"; break;
-        case 8: output_text += "восемьдесят"; break;
-        case 9: output_text += "девяносто"; break;
-        default: return error_text;    
+        case 2: text_of_value += "двадцать"; break;
+        case 3: text_of_value += "тридцать"; break;
+        case 4: text_of_value += "сорок"; break;
+        case 5: text_of_value += "пятьдесят"; break;
+        case 6: text_of_value += "шестьдесят"; break;
+        case 7: text_of_value += "семьдесят"; break;
+        case 8: text_of_value += "восемьдесят"; break;
+        case 9: text_of_value += "девяносто"; break;
+        default: return text_of_error;    
     }
 
-    if(digit_1 != 1)
+    if(digits[0] != 1)
     {
-        if ((digit_1 != 0) && (digit_2!= 0)) output_text+=" ";
-        switch (digit_2)
+        if ((digits[0] != 0) && (digits[1]!= 0)) text_of_value+=" ";
+        switch (digits[1])
         {
-            case 0: if(digit_1 == 0) output_text += "ноль"; break;
-            case 1: output_text += "один"; break;
-            case 2: output_text += "два"; break;
-            case 3: output_text += "три"; break;
-            case 4: output_text += "четыре"; break;
-            case 5: output_text += "пять"; break;
-            case 6: output_text += "шесть"; break;
-            case 7: output_text += "семь"; break;
-            case 8: output_text += "восемь"; break;
-            case 9: output_text += "девять"; break;
-            default: return error_text;  
+            case 0: if(digits[0] == 0) text_of_value += "ноль"; break;
+            case 1: text_of_value += "один"; break;
+            case 2: text_of_value += "два"; break;
+            case 3: text_of_value += "три"; break;
+            case 4: text_of_value += "четыре"; break;
+            case 5: text_of_value += "пять"; break;
+            case 6: text_of_value += "шесть"; break;
+            case 7: text_of_value += "семь"; break;
+            case 8: text_of_value += "восемь"; break;
+            case 9: text_of_value += "девять"; break;
+            default: return text_of_error;  
         }
     }
     else
     {
-        switch (digit_2)
+        switch (digits[1])
         {
-            case 0: output_text += "десять"; break;
-            case 1: output_text += "одинадцать"; break;
-            case 2: output_text += "двенадцать"; break;
-            case 3: output_text += "тринадцать"; break;
-            case 4: output_text += "четырнадцать"; break;
-            case 5: output_text += "пятьнадцать"; break;
-            case 6: output_text += "шестьнадцать"; break;
-            case 7: output_text += "семьнадцать"; break;
-            case 8: output_text += "восемьнадцать"; break;
-            case 9: output_text += "девятьнадцать" ;break;
-            default: return error_text;
+            case 0: text_of_value += "десять"; break;
+            case 1: text_of_value += "одинадцать"; break;
+            case 2: text_of_value += "двенадцать"; break;
+            case 3: text_of_value += "тринадцать"; break;
+            case 4: text_of_value += "четырнадцать"; break;
+            case 5: text_of_value += "пятьнадцать"; break;
+            case 6: text_of_value += "шестьнадцать"; break;
+            case 7: text_of_value += "семьнадцать"; break;
+            case 8: text_of_value += "восемьнадцать"; break;
+            case 9: text_of_value += "девятьнадцать" ;break;
+            default: return text_of_error;
         }
     }
 
-    //Возврат результата
-    return (output_text+=" ");
+    return (text_of_value+=" ");
 }
