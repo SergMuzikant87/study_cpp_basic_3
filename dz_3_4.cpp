@@ -22,7 +22,7 @@ int main(int argc, char * argv [])
         std::cin >> values[num];
         if((values[num] < VALUE_MINIMUM) || (values[num] > VALUE_MAXIMUM))
         {
-            std::cout << "Введено некорректное значение числа 1.\n";
+            std::cout << "Введено некорректное значение числа " << num << ".\n";
             return 0;
         }
 
