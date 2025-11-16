@@ -30,7 +30,7 @@ int main(int argc, char * argv [])
 
     std::cout << "Введите число 2: ";
     std::cin >> value_2;
-    if((value_1 < VALUE_MINIMUM) || (value_1 > VALUE_MAXIMUM))
+    if((value_2 < VALUE_MINIMUM) || (value_2 > VALUE_MAXIMUM))
     {
         std::cout << "Введено некорректное значение числа 2.\n";
         return 0;
@@ -61,7 +61,7 @@ int main(int argc, char * argv [])
 static std::string value_to_text_of_value(int value)
 {
     std::string output_text{""};
-    std::string error_text{"?????? "};
+    std::string error_text{"какое-то число "};
 
     // Обработка ошибок
     if((value < -99) || (value > 99))
