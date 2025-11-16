@@ -70,7 +70,7 @@ static std::string value_to_text_of_value(int value)
         return error_text;
     }
 
-    //знак
+    // Учитываем знак числа
     if(value < 0)
     {
         output_text += "минус ";
