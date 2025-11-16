@@ -1,5 +1,5 @@
 CC := g++
-FLAGS := -Wall -O2 -std=c++17 -g
+FLAGS := -Wall -O2 -std=c++11 -g
 
 all:
 	@echo "Compile programm"
