@@ -5,7 +5,7 @@
 /*
     Функция возвращает число, указанное на входе (от -99 до 99), в виде текста.
 */
-static std::string value_text(int value);
+static std::string value_to_text_of_value(int value);
 
 int main(int argc, char * argv [])
 {
@@ -40,8 +40,8 @@ int main(int argc, char * argv [])
     
     //2. Формирование результата
 
-    std::string value_1_text = value_text(value_1);
-    std::string value_2_text = value_text(value_2);
+    std::string value_1_text = value_to_text_of_value(value_1);
+    std::string value_2_text = value_to_text_of_value(value_2);
     std::string values_compare_text = (value_1 > value_2) ? "больше " : "меньше ";
 
     ///////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ int main(int argc, char * argv [])
 /*
     Функция возвращает число, указанное на входе (от -99 до 99), в виде текста.
 */
-static std::string value_text(int value)
+static std::string value_to_text_of_value(int value)
 {
     std::string output_text{""};
     std::string error_text{"?????? "};
