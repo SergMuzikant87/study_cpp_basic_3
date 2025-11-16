@@ -2,6 +2,9 @@
 #include <string>
 #include <clocale>
 
+#define VALUE_MINIMUM -99
+#define VALUE_MAXIMUM 99
+
 /*
     Функция возвращает число, указанное на входе (от -99 до 99), в виде текста.
 */
@@ -17,9 +20,7 @@ int main(int argc, char * argv [])
  
     int value_1{};
     int value_2{};
-    const int VALUE_MINIMUM = -99;
-    const int VALUE_MAXIMUM = 99;
-    
+
     std::cout << "Введите число 1: ";
     std::cin >> value_1;
     if((value_1 < VALUE_MINIMUM) || (value_1 > VALUE_MAXIMUM))
@@ -64,7 +65,7 @@ static std::string value_to_text_of_value(int value)
     std::string error_text{"какое-то число "};
 
     // Обработка ошибок
-    if((value < -99) || (value > 99))
+    if((value < VALUE_MINIMUM) || (value > VALUE_MAXIMUM))
     {
         return error_text;
     }
