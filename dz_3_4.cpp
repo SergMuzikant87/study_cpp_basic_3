@@ -77,7 +77,7 @@ static std::string value_text(int value)
     }
 
     //Разделение числа на цифры
-    int value_digit_1 = ((value >= 10) || (value <= -10)) ? (value / 10) % 10 : 0;
+    int value_digit_1 = ((value >= 10) /*|| (value <= -10)*/) ? (value / 10) % 10 : 0;
     int value_digit_2 = value % 10;
 
     //Формирование текста цифр
