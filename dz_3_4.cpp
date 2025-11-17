@@ -29,7 +29,7 @@ int main(int argc, char * argv [])
         texts_of_values[num] = value_to_text_of_value(values[num]);
     }    
 
-    std::cout << "\n" << texts_of_values[0] << ((values[0] > values[1]) ? "больше " : "меньше ") << "чем "<< texts_of_values[1] << "\n";
+    std::cout << "\n" << texts_of_values[0] << ((values[0] > values[1]) ? "больше чем " : (values[0] < values[1]) ? "меньше чем " : "равно числу ") << texts_of_values[1] << "\n";
     
     return 0;
 }
